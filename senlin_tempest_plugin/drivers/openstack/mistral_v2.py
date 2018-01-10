@@ -13,7 +13,7 @@
 
 from oslo_utils import uuidutils
 
-from senlin_tempest_plugin.drivers import base
+from senlin.drivers import base
 from senlin_tempest_plugin.drivers.openstack import sdk
 
 

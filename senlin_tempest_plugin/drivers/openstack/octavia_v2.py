@@ -13,7 +13,7 @@
 from senlin.drivers import base
 
 
-class LoadBalancerDriver(base.DriverBase):
+class OctaviaClient(base.DriverBase):
     def __init__(self, params):
         self.lb_result = {
             "loadbalancer": "a36c20d0-18e9-42ce-88fd-82a35977ee8c",
@@ -25,14 +25,4 @@ class LoadBalancerDriver(base.DriverBase):
 
         self.member_id = "9a7aff27-fd41-4ec1-ba4c-3eb92c629313"
 
-    def lb_create(self, vip, pool, hm=None):
-        return True, self.lb_result
 
-    def lb_delete(self, **kwargs):
-        return True, 'LB deletion succeeded'
-
-    def member_add(self, node, lb_id, pool_id, port, subnet):
-        return self.member_id
-
-    def member_remove(self, lb_id, pool_id, member_id):
-        return True
