@@ -45,6 +45,11 @@ class NeutronClient(base.DriverBase):
                 "45aa2abc-47f0-4008-8d67-606b41cabb7a"
             ]
         }
+        self.fake_subnet = {
+            "network_id": "d32019d3-bc6e-4319-9c1d-6722fc136a22",
+            "subnet_pool_id": "54d6f61d-db07-451c-9ab3-b9609b6b6f0b",
+            "id": "60f65938-3ebb-451d-a3a3-a0918d345469"
+        }
 
     def network_get(self, value, ignore_missing=False):
         return sdk.FakeResourceObject(self.fake_network)
@@ -54,3 +59,6 @@ class NeutronClient(base.DriverBase):
 
     def port_delete(self, port, ignore_missing=True):
         return None
+
+    def subnet_get(self, name_or_id, ignore_missing=False):
+        return sdk.FakeResourceObject(self.fake_subnet)
